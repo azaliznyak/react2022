@@ -9,7 +9,7 @@ export default function Characters() {
     fetch('https://rickandmortyapi.com/api/character')
         .then(value => value.json())
         .then(value => {
-            setCharacters(value.result)
+            setCharacters(value.results)
         });
 
 // ?jfjffj
