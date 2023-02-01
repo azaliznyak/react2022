@@ -1,11 +1,11 @@
 
 const Simpson = (props) => {
-    const {name,surname,image}=props
+    const {simpson}=props
     return (
         <div>
-            <div>name: {name}</div>
-            <div>surname: {surname}</div>
-            <img src={image} alt={name}/>
+            <div>name: {simpson.name}</div>
+            <div>surname: {simpson.surname}</div>
+            <img src={simpson.image} alt={simpson.name}/>
         </div>
     );
 };
