@@ -1,12 +1,13 @@
 import React from 'react';
 
 const Rocket = ({rocket}) => {
-    const {id,mission_name,launch_year,mission_path_small}=rocket
+
     return (
         <div>
-            <div>Name - {mission_name}</div>
-            <div>Year - {launch_year}</div>
-            <div>Path - {mission_path_small}</div>
+            <h2>{rocket.flight_number}</h2>
+            <div>Name - {rocket.mission_name}</div>
+            {/*<div>Year - {rocket.launch_year}</div>*/}
+            {/*<img src={rocket.links.mission_path_small} alt={rocket.mission_name}/>*/}
 
         </div>
     );
