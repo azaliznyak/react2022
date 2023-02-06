@@ -1,4 +1,4 @@
-let _url='https://api.spacexdata.com/v4/launches/'
+let _url='https://api.spacexdata.com/v3/launches/'
 const getAll=()=>{
     return fetch(_url)
 }
