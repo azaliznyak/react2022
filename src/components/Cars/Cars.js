@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {axiosService} from "../../services/axios.service";
-import {carService} from "../../services/car.service";
+
 import Car from "../Car/Car";
 
-const Cars = ({cars}) => {
+const Cars = ({cars, setCars, setUpdateCar}) => {
 
     return (
         <div>
-            {cars.map(car=><Car key={car.id} car={car}/>)}
+            {cars.map(car=><Car key={car.id} car={car} setCars={setCars} setUpdateCar={setUpdateCar}/>)}
             
         </div>
     );
