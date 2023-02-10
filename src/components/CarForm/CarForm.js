@@ -22,8 +22,13 @@ const CarForm = ({setCars,updateCar}) => {
 
     },[updateCar]);
 
-    const updateNewCar =async () => {
-        await carService.updateById().then(value => value.data).then(value => setCars(value))
+    const updateNewCar =async (id,newCar) => {
+       await carService.updateById(id,newCar)
+        setCars(cars=>{
+            cars.findIndex(value => value.id===id);
+            cars.(updateCar)
+            return [...cars,]
+        })
     }
 
     return (

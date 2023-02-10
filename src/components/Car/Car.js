@@ -12,7 +12,7 @@ const Car = ({car,setCars, setUpdateCar}) => {
             return [...cars]
         })
     }
-    // const updateCar =async () => {
+    // const updateCar =async (id,car) => {
     //     await carService.updateById(id).then(value => value.data).then(value => setUpdateCar(value))
     // }
 
