@@ -26,7 +26,7 @@ const CarForm = ({setCars,updateCar}) => {
        await carService.updateById(id,newCar)
         setCars(cars=>{
             cars.findIndex(value => value.id===id);
-            cars.(updateCar)
+            cars.replace(cars,newCar)
             return [...cars,]
         })
     }
