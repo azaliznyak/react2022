@@ -22,24 +22,23 @@ const CarForm = ({setCars,updateCar}) => {
 
     },[updateCar]);
 
-    const updateNewCar =async (id,newCar) => {
-       await carService.updateById(id,newCar)
-        setCars(cars=>{
-            cars.findIndex(value => value.id===id);
-            cars.replace(cars,newCar)
-            return [...cars,]
-        })
+    const updateNewCar =async (car) => {
+       const {data}=await carService.updateById(updateCar.id,car)
+        if (Object.keys(data).length){
+            const {data}= await carService.getAll()
+            setCars(data)
+        }
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(updateCar? updateNewCar:submit)}>
             <input type="text" placeholder={'brand'} {...register('brand')}/>
             {errors.brand&&<span>{errors.brand.message}</span>}
             <input type="text" placeholder={'price'} {...register('price')}/>
             {errors.price&&<span>{errors.price.message}</span>}
             <input type="text" placeholder={'year'} {...register('year')}/>
             {errors.year&&<span>{errors.year.message}</span>}
-            <button onClick={()=>updateNewCar()} disabled={!isValid}>{updateCar?'Update':'Create'}</button>
+            <button disabled={!isValid}>{updateCar?'Update':'Create'}</button>
         </form>
     );
 };
