@@ -22,8 +22,7 @@ function App() {
                <Route path={'users'} element={<UsersPage/>}/>
                <Route path={'posts'} element={<PostsPage/>}>
                <Route path={':postId'} element={<PostDetailsPage/>}/>
-           </Route>
-
+               </Route>
 
 
                <Route path={'about'} element={<AboutPage/>}/>
