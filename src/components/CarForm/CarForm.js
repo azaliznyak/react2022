@@ -19,9 +19,18 @@ const CarForm = ({setCars, updateCar}) => {
             setValue('price',updateCar.price);
             setValue('year',updateCar.year)
         }
-    },[updateCar])
+    },[updateCar]);
+
+    const updateNewCar=async (car)=>{
+        const {data}=await carService.updateById(updateCar.id,car)
+        if (Object.keys(data).length){
+            const {data}=await carService.getAll()
+            setCars(data)
+        }
+    }
+
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(updateCar?updateNewCar:submit)}>
             <input type="text" placeholder={'brand'} {...register('brand')}/>
             {errors.brand&&<span>{errors.brand.messages}</span>}
             <input type="text" placeholder={'price'} {...register('price')}/>
