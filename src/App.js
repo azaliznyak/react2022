@@ -12,19 +12,23 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
+      <div>
+
 <Routes>
   <Route path={'/'} element={<MainLayout/>}>
-    <Route path={'/albums'} element={<AlbumsPage/>}/>
+    <Route path={'albums'} element={<AlbumsPage/>}/>
     <Route path={'comments'} element={<CommentsPage/>}>
       <Route path={':postId'} element={<Posts/>}/>
     </Route>
-    <Route path={'/todos'} element={<TodosPage/>}/>
+    <Route path={'todos'} element={<TodosPage/>}/>
 
 
   </Route>
- <Route path={'/notFound'} element={<NotFoundPage/>}/>
+    <Route path={'*'} element={<NotFoundPage/>}/>
 
 </Routes>
+
+</div>
   );
 }
 

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {albumsService} from "../../services/albums.service";
+import Album from "../Album/Album";
 
 const Albums = () => {
+    const [albums,setAlbums]=useState([]);
+
+    useEffect(()=>{
+        albumsService.getAll(({data})=>setAlbums([...data]))
+    },[])
     return (
         <div>
+            {albums.map(album=><Album key={album.id} album={album}/>)}
 
         </div>
     );
