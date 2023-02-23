@@ -6,7 +6,7 @@ const Albums = () => {
     const [albums,setAlbums]=useState([]);
 
     useEffect(()=>{
-        albumsService.getAll(({data})=>setAlbums([...data]))
+        albumsService.getAll().then(({data})=>setAlbums([...data]))
     },[])
     return (
         <div>
